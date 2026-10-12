@@ -90,8 +90,11 @@ namespace {
     //==========================================================================
     api::Result<ui::ShowCustomMenuResult> UiShowCustomMenu(const ui::ShowCustomMenuParams& p, const CallerContext& caller) {
         const int itemCount = static_cast<int>(p.items.size());
-        console::printf("[UiApi] showCustomMenu: x=%lld, y=%lld, items=%d, has_callerHwnd=%s",
-            static_cast<long long>(p.x), static_cast<long long>(p.y), itemCount, caller.callerHwnd ? "true" : "false");
+        console::formatter()
+            << "[UiApi] showCustomMenu: x=" << p.x
+            << ", y=" << p.y
+            << ", items=" << itemCount
+            << ", has_callerHwnd=" << (caller.callerHwnd ? "true" : "false");
 
         // 面板模式: 调用方 HWND 是面板 HWND（DOM 坐标相对于此窗口）
         // 独立窗口: 回退到主窗口
