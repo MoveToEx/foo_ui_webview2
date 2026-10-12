@@ -90,7 +90,7 @@ namespace {
     //==========================================================================
     api::Result<ui::ShowCustomMenuResult> UiShowCustomMenu(const ui::ShowCustomMenuParams& p, const CallerContext& caller) {
         const int itemCount = static_cast<int>(p.items.size());
-        console::formatter()
+        FB2K_console_formatter()
             << "[UiApi] showCustomMenu: x=" << p.x
             << ", y=" << p.y
             << ", items=" << itemCount
